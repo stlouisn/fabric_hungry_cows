@@ -109,6 +109,7 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
         IS_MILKED = DataTracker.registerData(CowEntityMixin.class, TrackedDataHandlerRegistry.BYTE);
     }
 
+    @Unique
     public ItemStack getEdibleMilk(){
         ItemStack edibleMilk = new ItemStack(Items.MILK_BUCKET);
         edibleMilk.set(DataComponentTypes.FOOD, PinkFoodComponents.MILK_BUCKET);
@@ -122,8 +123,8 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
             if (!this.isBaby() && this.isMilkable()) {
                 this.setMilked(true);
                 player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 5.0F);
-                ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, getEdibleMilk());
-                player.setStackInHand(hand, itemStack2);
+                ItemStack itemStackMilk = ItemUsage.exchangeStack(itemStack, player, getEdibleMilk());
+                player.setStackInHand(hand, itemStackMilk);
                 cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
             }
             else cir.setReturnValue(ActionResult.PASS);
