@@ -27,11 +27,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static com.pnku.hungrycows.HungryCows.IS_MILKED;
+
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
 
-    @Unique
-    private static TrackedData<Byte> IS_MILKED;
+
     @Unique
     private EatGrassGoal cowEatGrassGoal;
     @Unique
@@ -43,7 +44,7 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
     @Inject(method = "initGoals", at = @At("HEAD"))
     protected void injectedInitGoals(CallbackInfo info) {
         this.cowEatGrassGoal = new EatGrassGoal(this);
-        this.goalSelector.add(8, this.cowEatGrassGoal);
+        this.goalSelector.add(1, this.cowEatGrassGoal);
     }
 
     protected void mobTick() {
