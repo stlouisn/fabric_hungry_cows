@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "com.pnku.hungrycows.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"CowEntityMixin",
+		"ItemsMixin",
+		"MilkBucketItemMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
