@@ -2,29 +2,20 @@ package com.pnku.hungrycows.mixin;
 
 
 import com.pnku.hungrycows.item.PinkFoodComponents;
-import com.pnku.hungrycows.item.PinkItems;
-import net.minecraft.component.ComponentChanges;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.component.type.LoreComponent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Shearable;
 import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -36,18 +27,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.io.ObjectInputFilter;
-import java.util.Collections;
-import java.util.List;
-import java.util.function.UnaryOperator;
-
-import static net.minecraft.item.Items.BUCKET;
+import static com.pnku.hungrycows.HungryCows.IS_MILKED;
 
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
 
-    @Unique
-    private static TrackedData<Byte> IS_MILKED;
+
     @Unique
     private EatGrassGoal cowEatGrassGoal;
     @Unique
@@ -58,9 +43,8 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
     }
     @Inject(method = "initGoals", at = @At("HEAD"))
     protected void injectedInitGoals(CallbackInfo info) {
-        super.initGoals();
         this.cowEatGrassGoal = new EatGrassGoal(this);
-        this.goalSelector.add(8, this.cowEatGrassGoal);
+        this.goalSelector.add(1, this.cowEatGrassGoal);
     }
 
     protected void mobTick() {
@@ -125,7 +109,8 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
         IS_MILKED = DataTracker.registerData(CowEntityMixin.class, TrackedDataHandlerRegistry.BYTE);
     }
 
-    public ItemStack edibleMilk(){
+    @Unique
+    public ItemStack getEdibleMilk(){
         ItemStack edibleMilk = new ItemStack(Items.MILK_BUCKET);
         edibleMilk.set(DataComponentTypes.FOOD, PinkFoodComponents.MILK_BUCKET);
         return edibleMilk;
@@ -138,8 +123,8 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
             if (!this.isBaby() && this.isMilkable()) {
                 this.setMilked(true);
                 player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 5.0F);
-                ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, edibleMilk());
-                player.setStackInHand(hand, itemStack2);
+                ItemStack itemStackMilk = ItemUsage.exchangeStack(itemStack, player, getEdibleMilk());
+                player.setStackInHand(hand, itemStackMilk);
                 cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
             }
             else cir.setReturnValue(ActionResult.PASS);

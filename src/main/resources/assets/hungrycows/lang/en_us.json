@@ -1,0 +1,5 @@
+{
+  "hungrycows.milkable.0": "Has eaten and can be milked.",
+  "hungrycows.milkable.1": "Hungry and can't be milked yet.",
+  "config.jade.plugin_hungrycows.milkable": "MILKABLE"
+}

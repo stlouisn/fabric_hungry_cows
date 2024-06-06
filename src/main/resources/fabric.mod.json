@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.pnku.hungrycows.HungryCows"
+		],
+		"jade": [
+			"com.pnku.hungrycows.jade.HungryCowsPlugin"
 		]
 	},
 	"mixins": [
