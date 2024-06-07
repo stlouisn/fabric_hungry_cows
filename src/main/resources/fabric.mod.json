@@ -3,13 +3,12 @@
 	"id": "hungrycows",
 	"version": "${version}",
 	"name": "Hungry Cows",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Making cows eat grass to regenerate their milk giving abilities and making that milk fills the player's stomach. ",
 	"authors": [
 		"pnku"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/pnk2u/hungrycows"
 	},
 	"license": "MIT",
 	"icon": "assets/hungrycows/icon.png",
