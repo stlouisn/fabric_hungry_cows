@@ -1,5 +1,5 @@
 #### <p style="text-align: right;">HUNGRY COWS</p>
-<p style="text-align: center;"><img src="https://github.com/pnk2u/hungrycows/blob/main/src/main/resources/assets/hungrycows/icon.png?raw=true"></p>
+<p style="text-align: center;"><img src="(https://uwu.catgirl.host/i/d14pw.png)"></p>
 
 ## Cows are not infinite milk machines! <p style="font-size: 6pt;">(And shouldn't milk fill your stomach, too?)</p>
 
