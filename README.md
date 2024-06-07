@@ -11,7 +11,7 @@ No, obviously that makes no sense and makes milk a way less cool item than it co
 #### And that's why this mod is here to fix this:
 + Cows can now only be milked once, after which you have to wait until they decide to eat some grass (like sheep) to milk them again.
 + Cows eat grass approximately once or twice a day.
-+ Milk fills your hunger bar and gives you saturation. (Same stats as cooked salmon.)
++ Milk fills your hunger bar and gives you saturation. (Same stats as a Golden Carrot.)
 
 ### Compatibility:
 This mod is fully compatible with [AppleSkin](https://modrinth.com/mod/appleskin/).  

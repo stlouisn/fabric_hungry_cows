@@ -44,7 +44,7 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
     @Inject(method = "initGoals", at = @At("HEAD"))
     protected void injectedInitGoals(CallbackInfo info) {
         this.cowEatGrassGoal = new EatGrassGoal(this);
-        this.goalSelector.add(1, this.cowEatGrassGoal);
+        this.goalSelector.add(8, this.cowEatGrassGoal);
     }
 
     protected void mobTick() {
