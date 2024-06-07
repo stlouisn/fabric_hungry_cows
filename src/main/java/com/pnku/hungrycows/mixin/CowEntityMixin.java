@@ -122,7 +122,8 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
         if (itemStack.isOf(Items.BUCKET)){
             if (!this.isBaby() && this.isMilkable()) {
                 this.setMilked(true);
-                player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 5.0F);
+                player.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_RESONATE, 0.317F, 3.17F);
+                player.playSound(SoundEvents.ENTITY_COW_MILK, 1.317F, 1.237F);
                 ItemStack itemStackMilk = ItemUsage.exchangeStack(itemStack, player, getEdibleMilk());
                 player.setStackInHand(hand, itemStackMilk);
                 cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
