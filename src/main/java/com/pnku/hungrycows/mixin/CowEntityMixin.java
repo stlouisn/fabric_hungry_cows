@@ -88,8 +88,9 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
         return ((Byte)this.dataTracker.get(IS_MILKED)) != 0;
     }
     @Unique
-    public void setMilked(boolean milked) {
-        byte isMilkedByte = isMilked() ? (byte)1 : (byte)0;
+    public void setMilked(boolean isMilked) {
+        byte isMilkedByte = isMilked ? (byte) 1 : (byte) 0;
+
         this.dataTracker.set(IS_MILKED, isMilkedByte);
     }
 
