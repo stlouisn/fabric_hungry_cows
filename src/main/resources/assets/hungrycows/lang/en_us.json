@@ -1,5 +1,13 @@
 {
   "hungrycows.milkable.0": "Has eaten and can be milked.",
   "hungrycows.milkable.1": "Hungry and can't be milked yet.",
+  "title.hungrycows.config": "\"Hungry Cows\"-configuration",
+  "config.category.hungrycows.cow": "Cow settings",
+  "config.category.hungrycows.milk": "Milk settings",
+  "config.cow_option.hungrycows.grasseat_probability": "Probability of eating grass",
+  "config.milk_option.hungrycows.milk_nutrition": "Food points restored",
+  "config.milk_option.hungrycows.milk_nutrition.tooltip": "Amount of food points added to the hunger bar, a fully filled hunger bar consists of 20 food points. The values for vanilla foods range from 1 (like Beetroot or Dried Kelp) to 8 (like Cooked Porkchop or Pumpkin Pie).",
+  "config.milk_option.hungrycows.milk_saturation": "Saturation",
+  "config.milk_option.hungrycows.milk_saturation.tooltip": "This refers to the hidden stat of saturation which depending on its value lengthens the time until your hunger bar starts depleting. The values for vanilla foods range from 0.1 (like Raw Fish, Cookies or Berries) to 1.2 (like both Golden Apples and the Golden Carrot).",
   "config.jade.plugin_hungrycows.milkable": "MILKABLE"
 }

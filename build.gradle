@@ -22,14 +22,17 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
+	maven { url "https://maven.shedaniel.me/" }
+	maven {
+		name = "Terraformers"
+		url = "https://maven.terraformersmc.com/"
+	}
 }
 
 loom {
-    splitEnvironmentSourceSets()
 
 	mods {
-		"hungrycow" {
-			sourceSet sourceSets.main
+		"hungrycows" {
 		}
 	}
 
@@ -45,6 +48,12 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	// Jade
 	modCompileOnly "curse.maven:jade-324717:${jade_id}"
+	// Cloth Config
+	modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	// Mod Menu
+	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 	
 }
 
