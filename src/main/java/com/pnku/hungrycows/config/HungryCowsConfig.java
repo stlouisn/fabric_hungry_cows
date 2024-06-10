@@ -1,67 +1,54 @@
 package com.pnku.hungrycows.config;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.*;
-
 public class HungryCowsConfig {
-    private static File folder = new File("config");
-    private static File hungrycowsConfig;
-    public static Gson config = new GsonBuilder().setPrettyPrinting().create();
-    public static HungryCowsConfigDefaults INSTANCE;
 
-    public static void init() {
-        loadDefaults();
-        createConfig();
-        readFromConfig();
-        writeToConfig();
+    private float grassEatProbability;
+    private int milkNutritionValue;
+    private float milkSaturationModifier;
+    public static HungryCowsConfig INSTANCE;
+    public static int grassEatPriority = (int) Math.pow(2, 4 - getInstance().grassEatProbability);
+
+    public HungryCowsConfig() {
+        grassEatProbability = 1;
+        milkNutritionValue = 6;
+        milkSaturationModifier = 1.2f;
     }
 
-    private static void loadDefaults() {
-        INSTANCE = new HungryCowsConfigDefaults();
+    public static HungryCowsConfig getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HungryCowsConfig();
+        }
+
+        return INSTANCE;
     }
 
-    public static void createConfig() {
-        if (!folder.exists()) {
-            folder.mkdir();
-        }
-        if (folder.isDirectory()) {
-        hungrycowsConfig = new File(folder,"hungrycows.json");
-        if (!hungrycowsConfig.exists()) {
-            try {
-                 hungrycowsConfig.createNewFile();
-                 loadDefaults();
-                 String json = config.toJson(INSTANCE);
-                 FileWriter writer = new FileWriter(hungrycowsConfig);
-                 writer.write(json);
-                 writer.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-                }
-            }
-        }
+    public void setGrassEatProbability(float grassEatProbability) {
+        this.grassEatProbability = grassEatProbability;
     }
 
-    public static void readFromConfig() {
-        try {
-             INSTANCE = config.fromJson(new FileReader(hungrycowsConfig), HungryCowsConfigDefaults.class);
-             if (INSTANCE == null) {
-                 throw new IllegalStateException("Default configuration does not exist.");
-             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    public void setMilkNutritionValue(int milkNutritionValue) {
+        this.milkNutritionValue = milkNutritionValue;
     }
 
-    public static void writeToConfig () {
-        try {
-                String json = config.toJson(INSTANCE);
-                FileWriter writer = new FileWriter(hungrycowsConfig, false);
-                writer.write(json);
-                writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void setMilkSaturationModifier(float milkSaturationModifier) {
+        this.milkSaturationModifier = milkSaturationModifier;
+    }
+
+    public float getGrassEatProbability() {
+        return grassEatProbability;
+    }
+
+    public int getMilkNutritionValue() {
+        return milkNutritionValue;
+    }
+
+    public float getMilkSaturationModifier() {
+        return milkSaturationModifier;
+    }
+
+    public void updateConfigs(HungryCowsConfig config) {
+        grassEatProbability = config.getGrassEatProbability();
+        milkNutritionValue = config.getMilkNutritionValue();
+        milkSaturationModifier = config.getMilkSaturationModifier();
     }
 }

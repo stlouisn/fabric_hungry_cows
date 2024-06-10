@@ -27,7 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.pnku.hungrycows.HungryCows.IS_MILKED;
-import static com.pnku.hungrycows.HungryCows.grassEatPriority;
+import static com.pnku.hungrycows.config.HungryCowsConfig.grassEatPriority;
 
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
