@@ -49,11 +49,11 @@ dependencies {
 	// Jade
 	modCompileOnly "curse.maven:jade-324717:${jade_id}"
 	// Cloth Config
-	modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
+	modApi ("me.shedaniel.cloth:cloth-config-fabric:${project.clothconfig_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	// Mod Menu
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+	modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
 	
 }
 

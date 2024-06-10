@@ -5,8 +5,7 @@ public class HungryCowsConfig {
     private float grassEatProbability;
     private int milkNutritionValue;
     private float milkSaturationModifier;
-    public static HungryCowsConfig INSTANCE;
-    public static int grassEatPriority = (int) Math.pow(2, 4 - getInstance().grassEatProbability);
+    private static HungryCowsConfig INSTANCE;
 
     public HungryCowsConfig() {
         grassEatProbability = 1;
@@ -36,6 +35,11 @@ public class HungryCowsConfig {
 
     public float getGrassEatProbability() {
         return grassEatProbability;
+    }
+
+    public int getGrassEatPriority() {
+        int grassEatPriority = (int) Math.pow(2, 4 - getInstance().getGrassEatProbability());
+        return grassEatPriority;
     }
 
     public int getMilkNutritionValue() {

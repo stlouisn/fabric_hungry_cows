@@ -9,17 +9,11 @@ public class HungryCowsConfigJsonHelper {
     private static File folder = new File("config");
     private static File hungrycowsConfig;
     public static Gson configGson = new GsonBuilder().setPrettyPrinting().create();
-    public static HungryCowsConfig INSTANCE;
 
     public static void init() {
-        loadDefaults();
         createConfig();
         readFromConfig();
         writeToConfig();
-    }
-
-    private static void loadDefaults() {
-        INSTANCE = new HungryCowsConfig();
     }
 
     public static void createConfig() {
@@ -31,8 +25,7 @@ public class HungryCowsConfigJsonHelper {
         if (!hungrycowsConfig.exists()) {
             try {
                  hungrycowsConfig.createNewFile();
-                 loadDefaults();
-                 String json = configGson.toJson(INSTANCE);
+                 String json = configGson.toJson(HungryCowsConfig.getInstance());
                  FileWriter writer = new FileWriter(hungrycowsConfig);
                  writer.write(json);
                  writer.close();
@@ -46,7 +39,7 @@ public class HungryCowsConfigJsonHelper {
     public static void readFromConfig() {
         try {
             HungryCowsConfig config = configGson.fromJson(new FileReader(hungrycowsConfig), HungryCowsConfig.class);
-            INSTANCE.updateConfigs(config);
+            HungryCowsConfig.getInstance().updateConfigs(config);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +48,7 @@ public class HungryCowsConfigJsonHelper {
 
     public static void writeToConfig () {
         try {
-                String json = configGson.toJson(INSTANCE);
+                String json = configGson.toJson(HungryCowsConfig.getInstance());
                 FileWriter writer = new FileWriter(hungrycowsConfig, false);
                 writer.write(json);
                 writer.close();

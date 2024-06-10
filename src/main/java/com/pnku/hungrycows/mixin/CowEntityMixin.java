@@ -1,6 +1,6 @@
 package com.pnku.hungrycows.mixin;
 
-
+import com.pnku.hungrycows.config.HungryCowsConfig;
 import com.pnku.hungrycows.item.PinkFoodComponents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
@@ -27,7 +27,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.pnku.hungrycows.HungryCows.IS_MILKED;
-import static com.pnku.hungrycows.config.HungryCowsConfig.grassEatPriority;
 
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
@@ -44,7 +43,7 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
     @Inject(method = "initGoals", at = @At("HEAD"))
     protected void injectedInitGoals(CallbackInfo info) {
         this.cowEatGrassGoal = new EatGrassGoal(this);
-        this.goalSelector.add(grassEatPriority, this.cowEatGrassGoal);
+        this.goalSelector.add(HungryCowsConfig.getInstance().getGrassEatPriority(), this.cowEatGrassGoal);
     }
 
     protected void mobTick() {
