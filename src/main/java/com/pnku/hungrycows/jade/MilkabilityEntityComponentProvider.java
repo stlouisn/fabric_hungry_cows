@@ -11,7 +11,6 @@ import snownee.jade.api.config.IPluginConfig;
 
 import static com.pnku.hungrycows.HungryCows.IS_MILKED;
 
-
 public enum MilkabilityEntityComponentProvider implements IEntityComponentProvider, IServerDataProvider<EntityAccessor> {
 INSTANCE;
 
@@ -29,7 +28,9 @@ public void appendServerData(NbtCompound nbtCompound, EntityAccessor entityAcces
 
 @Override
 public Identifier getUid(){
-    return new Identifier("hungrycows","milkable");
                 }
+        String namespace = "hungrycows";
+        String path = "milkable";
+        return Identifier.of(namespace, path);
 
 }
