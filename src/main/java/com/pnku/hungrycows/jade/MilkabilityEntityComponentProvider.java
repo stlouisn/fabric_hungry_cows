@@ -28,9 +28,9 @@ public void appendServerData(NbtCompound nbtCompound, EntityAccessor entityAcces
 
 @Override
 public Identifier getUid(){
-                }
         String namespace = "hungrycows";
         String path = "milkable";
         return Identifier.of(namespace, path);
+    }
 
 }
