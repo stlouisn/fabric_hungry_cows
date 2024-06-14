@@ -18,6 +18,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -30,7 +31,6 @@ import static com.pnku.hungrycows.HungryCows.IS_MILKED;
 
 @Mixin(CowEntity.class)
 public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
-
 
     @Unique
     private EatGrassGoal cowEatGrassGoal;
@@ -67,6 +67,27 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
             this.eatGrassTimer = 40;
         } else {
             super.handleStatus(status);
+        }
+    }
+
+    @Unique
+    public float getNeckAngle(float delta) {
+        if (this.eatGrassTimer <= 0) {
+            return 0.0F;
+        } else if (this.eatGrassTimer >= 4 && this.eatGrassTimer <= 36) {
+            return 1.0F;
+        } else {
+            return this.eatGrassTimer < 4 ? ((float)this.eatGrassTimer - delta) / 4.0F : -((float)(this.eatGrassTimer - 40) - delta) / 4.0F;
+        }
+    }
+
+    @Unique
+    public float getHeadAngle(float delta) {
+        if (this.eatGrassTimer > 4 && this.eatGrassTimer <= 36) {
+            float f = ((float)(this.eatGrassTimer - 4) - delta) / 32.0F;
+            return 0.62831855F + 0.21991149F * MathHelper.sin(f * 28.7F);
+        } else {
+            return this.eatGrassTimer > 0 ? 0.62831855F : this.getPitch() * 0.017453292F;
         }
     }
 
