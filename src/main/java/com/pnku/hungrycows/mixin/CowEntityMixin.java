@@ -2,6 +2,7 @@ package com.pnku.hungrycows.mixin;
 
 import com.pnku.hungrycows.config.HungryCowsConfig;
 import com.pnku.hungrycows.item.PinkFoodComponents;
+import com.pnku.hungrycows.util.ICowEntity;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Shearable;
@@ -30,8 +31,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import static com.pnku.hungrycows.HungryCows.IS_MILKED;
 
 @Mixin(CowEntity.class)
-public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
-
+public abstract class CowEntityMixin extends AnimalEntity implements Shearable, ICowEntity {
     @Unique
     private EatGrassGoal cowEatGrassGoal;
     @Unique
@@ -71,7 +71,7 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
     }
 
     @Unique
-    public float getNeckAngle(float delta) {
+    public float hungrycows$getNeckAngle(float delta) {
         if (this.eatGrassTimer <= 0) {
             return 0.0F;
         } else if (this.eatGrassTimer >= 4 && this.eatGrassTimer <= 36) {
@@ -82,7 +82,7 @@ public abstract class CowEntityMixin extends AnimalEntity implements Shearable {
     }
 
     @Unique
-    public float getHeadAngle(float delta) {
+    public float hungrycows$getHeadAngle(float delta) {
         if (this.eatGrassTimer > 4 && this.eatGrassTimer <= 36) {
             float f = ((float)(this.eatGrassTimer - 4) - delta) / 32.0F;
             return 0.62831855F + 0.21991149F * MathHelper.sin(f * 28.7F);
