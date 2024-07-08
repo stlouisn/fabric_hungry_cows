@@ -1,8 +1,9 @@
 package com.pnku.hungrycows.jade;
 
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.IEntityComponentProvider;
 import snownee.jade.api.IServerDataProvider;
@@ -20,16 +21,16 @@ INSTANCE;
             ITooltip tooltip,
             EntityAccessor accessor,
             IPluginConfig config) {
-        int milkability = accessor.getEntity().getDataTracker().get(IS_MILKED);
-        tooltip.add(Text.translatable("hungrycows.milkable." + milkability));
+        int milkability = accessor.getEntity().getEntityData().get(IS_MILKED);
+        tooltip.add(Component.translatable("hungrycows.milkable." + milkability));
             }
 @Override
-public void appendServerData(NbtCompound nbtCompound, EntityAccessor entityAccessor) {
+public void appendServerData(CompoundTag nbtCompound, EntityAccessor entityAccessor) {
             }
 
 @Override
-public Identifier getUid(){
-    return new Identifier("hungrycows","milkable");
+public ResourceLocation getUid(){
+    return new ResourceLocation("hungrycows","milkable");
                 }
 
 }
