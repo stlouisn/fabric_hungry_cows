@@ -1,11 +1,8 @@
 package com.pnku.hungrycows.jade;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.IEntityComponentProvider;
 import snownee.jade.api.IServerDataProvider;
