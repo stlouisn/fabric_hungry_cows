@@ -24,7 +24,7 @@ public class HungryCowsConfigScreen implements ModMenuApi {
                         .setMax(3)
                 .setSaveConsumer(grassEatProbabilityFloat -> {
                     HungryCowsConfig.getInstance().setGrassEatProbability(grassEatProbabilityFloat);})
-                .setTooltip(Component.translatable("config.cow_option.hungrycows.grasseat_probability"))
+                .setTooltip(Component.translatable("config.cow_option.hungrycows.grasseat_probability.tooltip"))
                 .build());
         milk.addEntry(configBuilder.entryBuilder()
                 .startIntField(Component.translatable("config.milk_option.hungrycows.milk_nutrition"), HungryCowsConfig.getInstance().getMilkNutritionValue())
