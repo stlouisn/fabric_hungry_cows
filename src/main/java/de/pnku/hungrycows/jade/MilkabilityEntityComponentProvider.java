@@ -1,6 +1,7 @@
-package com.pnku.hungrycows.jade;
+package de.pnku.hungrycows.jade;
 
 
+import de.pnku.hungrycows.HungryCows;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -9,8 +10,6 @@ import snownee.jade.api.IEntityComponentProvider;
 import snownee.jade.api.IServerDataProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
-
-import static com.pnku.hungrycows.HungryCows.IS_MILKED;
 
 
 public enum MilkabilityEntityComponentProvider implements IEntityComponentProvider, IServerDataProvider<EntityAccessor> {
@@ -21,7 +20,7 @@ INSTANCE;
             ITooltip tooltip,
             EntityAccessor accessor,
             IPluginConfig config) {
-        int milkability = accessor.getEntity().getEntityData().get(IS_MILKED);
+        int milkability = accessor.getEntity().getEntityData().get(HungryCows.IS_MILKED);
         tooltip.add(Component.translatable("hungrycows.milkable." + milkability));
             }
 @Override

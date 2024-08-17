@@ -1,4 +1,4 @@
-package com.pnku.hungrycows.config;
+package de.pnku.hungrycows.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
