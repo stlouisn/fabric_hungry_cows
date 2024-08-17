@@ -28,7 +28,11 @@
 		]
 	},
 	"mixins": [
-		"hungrycows.mixins.json"
+		"hungrycows.mixins.json",
+		{
+			"config": "hungrycows.client.mixins.json",
+			"environment": "client"
+		}
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
