@@ -1,9 +1,9 @@
 {
   "required": true,
-  "package": "com.pnku.hungrycows.mixin.client" ,
+  "package": "de.pnku.hungrycows.mixin.client" ,
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "de.pnku.hungrycows.mixin.client.CowModelMixin"
+    "CowModelMixin"
   ],
   "injectors": {
     "defaultRequire": 1
