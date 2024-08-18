@@ -1,4 +1,4 @@
-package com.pnku.hungrycows.jade;
+package de.pnku.hungrycows.jade;
 
 import net.minecraft.world.entity.animal.Cow;
 import snownee.jade.api.*;

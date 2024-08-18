@@ -15,16 +15,16 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.pnku.hungrycows.HungryCows"
+			"de.pnku.hungrycows.HungryCows"
 		],
 		"client": [
-			"com.pnku.hungrycows.HungryCowsClient"
+			"de.pnku.hungrycows.HungryCowsClient"
 		],
 		"jade": [
-			"com.pnku.hungrycows.jade.HungryCowsPlugin"
+			"de.pnku.hungrycows.jade.HungryCowsPlugin"
 		],
 		"modmenu": [
-			"com.pnku.hungrycows.config.HungryCowsConfigScreen"
+			"de.pnku.hungrycows.config.HungryCowsConfigScreen"
 		]
 	},
 	"mixins": [

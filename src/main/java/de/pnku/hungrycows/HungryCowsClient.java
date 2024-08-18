@@ -1,4 +1,4 @@
-package com.pnku.hungrycows;
+package de.pnku.hungrycows;
 
 import net.fabricmc.api.ClientModInitializer;
 
