@@ -80,6 +80,12 @@ public abstract class CowMixin extends Animal implements Shearable, ICowEntity {
         }
     }
 
+    // Cows should not be sheared.
+    @Override
+    public boolean readyForShearing() {
+        return false;
+    }
+
     @Unique
     public float hungrycows$getHeadAngle(float delta) {
         if (this.eatGrassTimer > 4 && this.eatGrassTimer <= 36) {
