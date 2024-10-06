@@ -4,11 +4,10 @@
 	"compatibilityLevel": "JAVA_21",
 	"minVersion": "0.8.5",
 	"client": [
-		"client.CowModelMixin"
+		"CowModelMixin"
 	],
 	"mixins": [
-		"CowMixin" ,
-		"MilkBucketItemMixin"
+		"CowMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

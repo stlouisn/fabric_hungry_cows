@@ -11,23 +11,20 @@ import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 
 public enum MilkabilityEntityComponentProvider implements IEntityComponentProvider, IServerDataProvider<EntityAccessor> {
-    INSTANCE;
+  INSTANCE;
 
-    @Override
-    public void appendTooltip(
-            ITooltip tooltip,
-            EntityAccessor accessor,
-            IPluginConfig config) {
-        int milkability = accessor.getEntity().getEntityData().get(HungryCows.IS_MILKED);
-        tooltip.add(Component.translatable("hungrycows.milkable." + milkability));
-    }
-    @Override
-    public void appendServerData(CompoundTag nbtCompound, EntityAccessor entityAccessor) {
-    }
+  @Override
+  public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
+    int milkability = accessor.getEntity().getEntityData().get(HungryCows.IS_MILKED);
+    tooltip.add(Component.translatable("hungrycows.milkable." + milkability));
+  }
 
-    @Override
-    public ResourceLocation getUid(){
-        return ResourceLocation.fromNamespaceAndPath("hungrycows","milkable");
-    }
+  @Override
+  public void appendServerData(CompoundTag nbtCompound, EntityAccessor entityAccessor) {
+  }
 
+  @Override
+  public ResourceLocation getUid() {
+    return ResourceLocation.fromNamespaceAndPath("hungrycows", "milkable");
+  }
 }

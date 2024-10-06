@@ -21,9 +21,6 @@
 		],
 		"jade": [
 			"dev.hungrycows.jade.HungryCowsPlugin"
-		],
-		"modmenu": [
-			"dev.hungrycows.config.HungryCowsConfigScreen"
 		]
 	},
 	"mixins": [
