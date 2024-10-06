@@ -1,4 +1,4 @@
-package de.pnku.hungrycows.config;
+package dev.hungrycows.config;
 
 public class HungryCowsConfig {
 

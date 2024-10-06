@@ -1,9 +1,9 @@
-package de.pnku.hungrycows.mixin;
+package dev.hungrycows.mixin;
 
-import de.pnku.hungrycows.config.HungryCowsConfig;
-import de.pnku.hungrycows.item.PinkFoodComponents;
-import de.pnku.hungrycows.util.ICowEntity;
-import de.pnku.hungrycows.HungryCows;
+import dev.hungrycows.config.HungryCowsConfig;
+import dev.hungrycows.item.PinkFoodComponents;
+import dev.hungrycows.util.ICowEntity;
+import dev.hungrycows.HungryCows;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataSerializers;

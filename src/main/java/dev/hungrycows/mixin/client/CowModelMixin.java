@@ -1,6 +1,6 @@
-package de.pnku.hungrycows.mixin.client;
+package dev.hungrycows.mixin.client;
 
-import de.pnku.hungrycows.util.ICowEntity;
+import dev.hungrycows.util.ICowEntity;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.QuadrupedModel;

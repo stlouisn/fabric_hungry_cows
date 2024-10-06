@@ -1,46 +1,47 @@
 {
 	"schemaVersion": 1,
-	"id": "hungrycows",
-	"version": "${version}",
-	"name": "Hungry Cows",
-	"description": "Making cows eat grass to regenerate their milk giving abilities and making that milk fills the player's stomach. ",
+	"id": "${mod_id}",
+	"version": "${mod_version}",
+	"name": "${mod_name} [C]",
+	"description": "${mod_description}",
 	"authors": [
-		"pnku"
+		"${mod_authors}"
 	],
 	"contact": {
-		"sources": "https://github.com/pnk2u/hungrycows"
+		"homepage": "${url_homepage}",
+		"sources": "${git_sources}",
+		"issues": "${git_issues}"
 	},
-	"license": "MIT",
-	"icon": "assets/hungrycows/icon.png",
+	"license": "${mod_license}",
+	"icon": "logo.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"de.pnku.hungrycows.HungryCows"
-		],
-		"client": [
-			"de.pnku.hungrycows.HungryCowsClient"
+			"dev.hungrycows.HungryCows"
 		],
 		"jade": [
-			"de.pnku.hungrycows.jade.HungryCowsPlugin"
+			"dev.hungrycows.jade.HungryCowsPlugin"
 		],
 		"modmenu": [
-			"de.pnku.hungrycows.config.HungryCowsConfigScreen"
+			"dev.hungrycows.config.HungryCowsConfigScreen"
 		]
 	},
 	"mixins": [
-		"hungrycows.mixins.json",
-		{
-			"config": "hungrycows.client.mixins.json",
-			"environment": "client"
-		}
+		"hungrycows.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.11",
-		"minecraft": ">=1.21",
-		"java": ">=21",
-		"fabric-api": "*"
+		"fabricloader": ">=${fabric_loader_version}",
+		"minecraft": "${minecraft_version}",
+		"cloth-config": "*"
 	},
-	"suggests": {
-		"another-mod": "*"
+	"recommends": {
+		"modmenu": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.website": "${url_homepage}"
+			}
+		}
 	}
 }

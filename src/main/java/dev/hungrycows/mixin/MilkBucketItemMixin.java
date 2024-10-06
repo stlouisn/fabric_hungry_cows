@@ -1,4 +1,4 @@
-package de.pnku.hungrycows.mixin;
+package dev.hungrycows.mixin;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;

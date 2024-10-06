@@ -1,6 +1,6 @@
-package de.pnku.hungrycows;
+package dev.hungrycows;
 
-import de.pnku.hungrycows.config.HungryCowsConfigJsonHelper;
+import dev.hungrycows.config.HungryCowsConfigJsonHelper;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import org.slf4j.Logger;

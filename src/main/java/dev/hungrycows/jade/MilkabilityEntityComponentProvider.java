@@ -1,6 +1,6 @@
-package de.pnku.hungrycows.jade;
+package dev.hungrycows.jade;
 
-import de.pnku.hungrycows.HungryCows;
+import dev.hungrycows.HungryCows;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

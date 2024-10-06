@@ -1,7 +1,11 @@
 {
 	"required": true,
-	"package": "de.pnku.hungrycows.mixin",
+	"package": "dev.hungrycows.mixin",
 	"compatibilityLevel": "JAVA_21",
+	"minVersion": "0.8.5",
+	"client": [
+		"client.CowModelMixin"
+	],
 	"mixins": [
 		"CowMixin" ,
 		"MilkBucketItemMixin"

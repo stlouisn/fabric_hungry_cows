@@ -1,4 +1,4 @@
-package de.pnku.hungrycows.config;
+package dev.hungrycows.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

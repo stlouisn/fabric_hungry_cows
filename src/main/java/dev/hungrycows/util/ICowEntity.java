@@ -1,4 +1,4 @@
-package de.pnku.hungrycows.util;
+package dev.hungrycows.util;
 
 public interface ICowEntity {
 

@@ -1,4 +1,4 @@
-package de.pnku.hungrycows.mixin.client;
+package dev.hungrycows.mixin.client;
 
 import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;

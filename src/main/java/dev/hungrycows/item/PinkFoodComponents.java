@@ -1,6 +1,6 @@
-package de.pnku.hungrycows.item;
+package dev.hungrycows.item;
 
-import de.pnku.hungrycows.config.HungryCowsConfig;
+import dev.hungrycows.config.HungryCowsConfig;
 import net.minecraft.world.food.FoodProperties;
 
 public class PinkFoodComponents {
