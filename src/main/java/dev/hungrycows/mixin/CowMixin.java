@@ -5,6 +5,7 @@ import dev.hungrycows.impl.ICowEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -46,9 +47,9 @@ public abstract class CowMixin extends Animal implements Shearable, ICowEntity {
     this.goalSelector.addGoal(1, this.cowEatGrassGoal);
   }
 
-  protected void customServerAiStep() {
+  protected void customServerAiStep(ServerLevel serverLevel) {
     this.eatGrassTimer = this.cowEatGrassGoal.getEatAnimationTick();
-    super.customServerAiStep();
+    super.customServerAiStep(serverLevel);
   }
 
   public void aiStep() {
@@ -150,7 +151,7 @@ public abstract class CowMixin extends Animal implements Shearable, ICowEntity {
         player.playSound(SoundEvents.COW_MILK, 1.317F, 1.237F);
         ItemStack itemStackMilk = ItemUtils.createFilledResult(itemStack, player, Items.MILK_BUCKET.getDefaultInstance());
         player.setItemInHand(hand, itemStackMilk);
-        cir.setReturnValue(InteractionResult.sidedSuccess(this.level().isClientSide));
+        cir.setReturnValue(InteractionResult.SUCCESS_SERVER);
       }
       else {
         cir.setReturnValue(InteractionResult.PASS);
