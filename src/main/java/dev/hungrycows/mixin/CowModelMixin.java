@@ -1,7 +1,7 @@
 package dev.hungrycows.mixin;
 
+import dev.hungrycows.interfaces.ICowEntity;
 import dev.hungrycows.renderer.HungryCowRenderState;
-import dev.hungrycows.impl.ICowEntity;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.QuadrupedModel;
