@@ -1,4 +1,4 @@
-package dev.hungrycows.utils;
+package dev.hungrycows.renderer;
 
 # import net.fabricmc.api.EnvType;
 # import net.fabricmc.api.Environment;
