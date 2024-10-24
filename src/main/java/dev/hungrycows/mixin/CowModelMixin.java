@@ -1,32 +1,25 @@
 package dev.hungrycows.mixin;
 
+import dev.hungrycows.renderer.HungryCowRenderState;
 import dev.hungrycows.impl.ICowEntity;
 import net.minecraft.client.model.CowModel;
-import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.QuadrupedModel;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(CowModel.class)
-public abstract class CowModelMixin<Cow extends net.minecraft.world.entity.animal.Cow> extends QuadrupedModel<Cow> {
+public abstract class CowModelMixin<Cow extends net.minecraft.world.entity.animal.Cow> extends QuadrupedModel<HungryCowRenderState> {
 
-  public CowModelMixin(ModelPart root, boolean headScaled, float childHeadYOffset, float childHeadZOffset, float invertedChildHeadScale, float invertedChildBodyScale, int childBodyYOffset) {
-    super(root, headScaled, childHeadYOffset, childHeadZOffset, invertedChildHeadScale, invertedChildBodyScale, childBodyYOffset);
-  }
-
-  @Unique
-  private float headAngle;
-
-  @Override
-  public void prepareMobModel(Cow cowEntity, float limbAngle, float limbDistance, float tickDelta) {
-    super.prepareMobModel(cowEntity, limbAngle, limbDistance, tickDelta);
-    this.head.y = 6.0F + ((ICowEntity) cowEntity).hungrycows$getNeckAngle(tickDelta) * 9.0F;
-    this.headAngle = ((ICowEntity) cowEntity).hungrycows$getHeadAngle(tickDelta);
+  public CowModelMixin(ModelPart root) {
+    super(root);
   }
 
   @Override
-  public void setupAnim(Cow cowEntity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-    super.setupAnim(cowEntity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
-    this.head.xRot = this.headAngle;
+  public void setupAnim(HungryCowRenderState hungryCowRenderState) {
+    super.setupAnim(hungryCowRenderState);
+    this.head.y = this.head.y + hungryCowRenderState.neckAngle * 9.0F * hungryCowRenderState.ageScale;
+    this.head.xRot = hungryCowRenderState.headAngle;
   }
 }
