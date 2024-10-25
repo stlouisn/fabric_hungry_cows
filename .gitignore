@@ -15,7 +15,8 @@ out
 !.idea/dictionaries
 
 # gradle
-build
+build/*
+!build/libs
 .gradle
 
 # architectury

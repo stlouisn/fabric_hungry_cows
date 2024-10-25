@@ -1,7 +1,7 @@
 package dev.hungrycows.mixin;
 
 import dev.hungrycows.HungryCows;
-import dev.hungrycows.impl.ICowEntity;
+import dev.hungrycows.implementations.ICowEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;

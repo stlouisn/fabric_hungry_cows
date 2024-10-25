@@ -1,4 +1,4 @@
-package dev.hungrycows.impl;
+package dev.hungrycows.implementations;
 
 public interface ICowEntity {
 
