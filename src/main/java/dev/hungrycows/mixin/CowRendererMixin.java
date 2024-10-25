@@ -1,6 +1,6 @@
-package dev.hungrycows.mixin.client;
+package dev.hungrycows.mixin;
 
-import dev.hungrycows.interfaces.ICowEntity;
+import dev.hungrycows.implementations.ICowEntity;
 import dev.hungrycows.renderer.HungryCowRenderState;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@SuppressWarnings("deprecation")
 @Mixin(CowRenderer.class)
 public abstract class CowRendererMixin extends AgeableMobRenderer<Cow, HungryCowRenderState, CowModel> implements ICowEntity {
   public CowRendererMixin(EntityRendererProvider.Context context) {

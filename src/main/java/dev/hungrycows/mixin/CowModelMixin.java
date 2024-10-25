@@ -1,14 +1,12 @@
 package dev.hungrycows.mixin;
 
-import dev.hungrycows.interfaces.ICowEntity;
 import dev.hungrycows.renderer.HungryCowRenderState;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.QuadrupedModel;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 
+@SuppressWarnings("unused")
 @Mixin(CowModel.class)
 public abstract class CowModelMixin<Cow extends net.minecraft.world.entity.animal.Cow> extends QuadrupedModel<HungryCowRenderState> {
 

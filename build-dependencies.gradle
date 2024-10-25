@@ -1,11 +1,11 @@
 / Mod Menu /
-def modmenu_version = "11.0.3" // https://modrinth.com/mod/modmenu/versions?l=fabric
+def modmenu_version = "12.0.0-beta.1" // https://modrinth.com/mod/modmenu/versions?l=fabric
 repositories { maven { url = "https://maven.terraformersmc.com/" }}
 dependencies { modApi modLocalRuntime ( "com.terraformersmc:modmenu:${modmenu_version}" )}
 println("\nMod Menu: $modmenu_version")
 
 / Jade /
-def jade_file_id = "5706164" // https://www.curseforge.com/minecraft/mc-mods/jade/files/all?gameVersionTypeId=4
+def jade_file_id = "5835099" // https://www.curseforge.com/minecraft/mc-mods/jade/files/all?gameVersionTypeId=4
 repositories { maven { url = "https://www.cursemaven.com" }}
 dependencies { modCompileOnly modLocalRuntime ( "curse.maven:jade-324717:${jade_file_id}" )}
 println("\nJade: CurseForge-$jade_file_id")
